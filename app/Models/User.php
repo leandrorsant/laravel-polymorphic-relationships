@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 class User extends Model
 {
@@ -13,7 +14,8 @@ class User extends Model
         "name"
     ];
 
-    public function image(){
-        return $this->morphOne(Image::class,"imageable");
+    public function images(): MorphToMany
+    {
+        return $this->morthToMany(Image::class,"imageable");
     }
 }
